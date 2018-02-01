@@ -1,0 +1,16 @@
+version: '3'
+services:
+  coinmarketcap_poller:
+    build: .
+    volumes:
+     - .:/usr/src/app
+    links:
+      - mongo
+    environment:
+      MONGO_CLIENT: mongo
+      MONGO_DB: "coincap"
+      MONGO_COLLECTION: "prices"
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
