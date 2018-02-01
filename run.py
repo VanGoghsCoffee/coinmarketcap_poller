@@ -15,5 +15,5 @@ def polling():
     poller.run()
 
 scheduler = BlockingScheduler()
-scheduler.add_job(polling, 'interval', minutes=1)
+scheduler.add_job(polling, 'interval', hours=1)
 scheduler.start()
